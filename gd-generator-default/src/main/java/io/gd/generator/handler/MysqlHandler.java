@@ -22,7 +22,7 @@ public class MysqlHandler extends ScopedHandler<MysqlTableMeta> {
 
     protected Connection connection;
 
-    private boolean useGeneratedKeys = true;
+    protected boolean useGeneratedKeys = true;
 
     public MysqlHandler() {
         this.useGeneratedKeys = true;
@@ -204,7 +204,7 @@ public class MysqlHandler extends ScopedHandler<MysqlTableMeta> {
         return mysqlColumnMeta;
     }
 
-    private String getMysqlType(Field field) {
+    protected String getMysqlType(Field field) {
         Type genericType = field.getType();
         String typeName = genericType.getTypeName();
         Lob lob = field.getDeclaredAnnotation(Lob.class);
